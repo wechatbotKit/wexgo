@@ -1,0 +1,31 @@
+name:   Auto Add Issue And PR To Project
+on:
+  issues:
+    types:
+      - opened
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  add-issue-to-project:
+    runs-on: ubuntu-latest
+    if: "github.event_name == 'issues'"
+    steps:
+      - uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project:  ‍  ‍   Issues & PRs 进度跟踪
+          column: Pending Issues
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          action: add
+ 
+  add-pr-to-project:
+    runs-on: ubuntu-latest
+    if: "github.event_name == 'pull_request_target'"
+    steps:
+      - uses: alex-page/github-project-automation-plus@v0.8.1
+        with:
+          project:  ‍  ‍   Issues & PRs 进度跟踪
+          column: Pending PRs
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          action: add
