@@ -1,11 +1,12 @@
 name: ChangeLog
+
 on:
   pull_request_target:
     types:
         - opened
       branches:
         - main
-  jobs:
+jobs:
     release-please:
       runs-on: ubuntu-latest
       permissions:
