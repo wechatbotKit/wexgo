@@ -2,3 +2,4 @@ node_modules
 *.md
 commitlint.config.js
 target
+core
