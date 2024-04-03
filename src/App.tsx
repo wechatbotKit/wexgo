@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import { invoke } from '@tauri-apps/api/core';
 import './App.css';
+
+import { useCore } from './hooks/useCore';
 
 function App() {
   const [greetMsg, setGreetMsg] = useState('');
   const [name, setName] = useState('');
 
+  const { onCoreInit } = useCore();
+
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     setGreetMsg(await invoke('greet', { name }));
   }
+
+  useEffect(() => {
+    onCoreInit();
+  });
 
   return (
     <div className="container">
