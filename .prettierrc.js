@@ -11,4 +11,5 @@ module.exports = {
   arrowParens: 'always',
   // 定义换行符 lf linux-style
   endOfLine: 'lf',
+  semi: false,
 };
