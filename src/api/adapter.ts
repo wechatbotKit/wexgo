@@ -33,6 +33,12 @@ export default function axiosTauriAdapter(config: AxiosRequestConfig): Promise<a
   })
 }
 
+/**
+ * 响应转换器
+ * @param response
+ * @param responseType
+ * @returns
+ */
 const responseTypeParser = async (response: Response, responseType?: ResponseType) => {
   switch (responseType) {
     case 'arraybuffer':
