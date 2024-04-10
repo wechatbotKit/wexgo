@@ -1,8 +1,10 @@
 import axios from 'axios'
 import qs from 'qs'
+import adapter from './adapter'
 import { IRequest, IConfig, IResponse } from '../typings'
 
 const Axios = axios.create({
+  adapter,
   withCredentials: true,
   responseType: 'json',
   paramsSerializer: (param) => qs.stringify(param, { arrayFormat: 'repeat' }),
@@ -36,3 +38,5 @@ export const request = <T, U extends keyof IRequest<T>>({
     IResponse<T>
   >
 }
+
+export * from './lib/test'

@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import { invoke } from '@tauri-apps/api/core'
+
+import { getApi } from '../api'
 
 function App() {
   const [greetMsg, setGreetMsg] = useState('')
@@ -13,6 +15,12 @@ function App() {
   }
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    getApi().then((res) => {
+      console.log(10086, res)
+    })
+  }, [])
 
   return (
     <div className="container">

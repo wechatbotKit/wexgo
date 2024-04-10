@@ -1,11 +1,18 @@
 import { RouteObject } from 'react-router-dom'
 import Root from '../Root'
 
+import Test from '../views/test'
+
 const routes: RouteObject[] = [
   {
     path: '/',
     Component: Root,
-    children: [],
+    children: [
+      {
+        path: '/abc',
+        Component: Test,
+      },
+    ],
   },
 ]
 
