@@ -38,5 +38,3 @@ export const request = <T, U extends keyof IRequest<T>>({
     IResponse<T>
   >
 }
-
-export * from './lib/test'
