@@ -1,24 +1,26 @@
-import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import { invoke } from '@tauri-apps/api/core';
-import './App.css';
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import reactLogo from '../assets/react.svg'
+import { invoke } from '@tauri-apps/api/core'
 
-import { useCore } from './hooks/useCore';
+import { getApi } from '../api'
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState('');
-  const [name, setName] = useState('');
-
-  const { onCoreInit } = useCore();
+  const [greetMsg, setGreetMsg] = useState('')
+  const [name, setName] = useState('')
 
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke('greet', { name }));
+    setGreetMsg(await invoke('greet', { name }))
   }
 
+  const navigate = useNavigate()
+
   useEffect(() => {
-    onCoreInit();
-  });
+    getApi().then((res) => {
+      console.log(10086, res)
+    })
+  }, [])
 
   return (
     <div className="container">
@@ -36,13 +38,15 @@ function App() {
         </a>
       </div>
 
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+      <p onClick={() => navigate('/abc')}>
+        Click on the Tauri, Vite, and React logos to learn more.
+      </p>
 
       <form
         className="row"
         onSubmit={(e) => {
-          e.preventDefault();
-          greet();
+          e.preventDefault()
+          greet()
         }}
       >
         <input
@@ -55,7 +59,7 @@ function App() {
 
       <p>{greetMsg}</p>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
