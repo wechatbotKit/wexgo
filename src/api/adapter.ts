@@ -3,6 +3,11 @@ import { AxiosRequestConfig, ResponseType } from 'axios'
 // @ts-ignore
 import settle from '../../node_modules/axios/lib/core/settle.js'
 
+/**
+ * axios Tauri 适配器
+ * @param config
+ * @returns
+ */
 export default function axiosTauriAdapter(config: AxiosRequestConfig): Promise<any> {
   return new Promise(async function (resolve, reject) {
     const response = await fetch(
