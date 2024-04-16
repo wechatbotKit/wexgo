@@ -14,5 +14,6 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     semi: ['error', 'never'],
+    'prettier/prettier': 'error'
   },
 };
