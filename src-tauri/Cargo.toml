@@ -24,3 +24,4 @@ tauri = { version = "2.0.0-beta.13", features = [] }
 tauri-plugin-shell = "2.0.0-beta.3"
 tauri-plugin-single-instance = "2.0.0-beta.5"
 tauri-plugin-fs = "2.0.0-beta.4"
+tauri-plugin-http = "2.0.0-beta.4"
