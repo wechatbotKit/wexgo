@@ -1,6 +1,6 @@
 import { AxiosResponse, AxiosRequestConfig } from 'axios'
 
-interface IData<T> {
+export interface IData<T> {
   total_items?: number
   page_index?: number
   items_per_page?: number

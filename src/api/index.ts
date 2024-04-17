@@ -1,7 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
 import adapter from './adapter'
-import { IRequest, IConfig, IResponse } from '../typings'
 
 const Axios = axios.create({
   adapter,
@@ -27,14 +26,14 @@ Axios.interceptors.response.use(
 
 export default Axios
 
-export const request = <T, U extends keyof IRequest<T>>({
+export const request = <T, U extends keyof IAxios.IRequest<T>>({
   url,
   data,
   config,
   method,
   params,
-}: IConfig<U>) => {
+}: IAxios.IConfig<U>) => {
   return Axios.request<T>({ url, data, method, params, ...config }) as unknown as Promise<
-    IResponse<T>
+    IAxios.IResponse<T>
   >
 }
