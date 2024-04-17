@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.1](https://github.com/wechatbotKit/wexgo/compare/v1.0.0...v1.0.1) (2024-04-17)
+
+
+### 🎫 Chores | 其他更新
+
+* allow pr ([e953428](https://github.com/wechatbotKit/wexgo/commit/e953428231b8ff430a15ff416327cb7b4575efe3))
+* 移除多余代码 ([7b266ba](https://github.com/wechatbotKit/wexgo/commit/7b266ba7f0139e9d6a9e867be6336f1e4fcb7255))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* markdown ([621aae8](https://github.com/wechatbotKit/wexgo/commit/621aae8ac0441fc76f7e6d2dd0449851da102615))
+
 ## 1.0.0 (2024-04-16)
 
 
