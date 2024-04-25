@@ -43,6 +43,3 @@ export const request = <T, U extends keyof IAxios.IRequest<T>>({
     IAxios.IResponse<T>
   >
 }
-
-export * from './lib/auth'
-export * from './lib/user'
