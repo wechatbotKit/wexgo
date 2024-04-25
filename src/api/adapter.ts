@@ -8,7 +8,7 @@ import settle from '../../node_modules/axios/lib/core/settle.js'
  * @param config
  * @returns
  */
-export default function axiosTauriAdapter(config: AxiosRequestConfig): Promise<any> {
+export default async function axiosTauriAdapter(config: AxiosRequestConfig): Promise<any> {
   return new Promise(async function (resolve, reject) {
     const response = await fetch(
       `${config.baseURL}${config.url && config.url[0] === '/' ? config.url : `/${config.url}`}` as string,
@@ -24,7 +24,7 @@ export default function axiosTauriAdapter(config: AxiosRequestConfig): Promise<a
     )
 
     settle(resolve, reject, {
-      data: responseTypeParser(response, config.responseType),
+      data: await responseTypeParser(response, config.responseType),
       status: response.status,
       statusText: response.statusText,
       headers: config.headers,
