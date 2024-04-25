@@ -20,7 +20,13 @@ Axios.interceptors.request.use(
 )
 
 Axios.interceptors.response.use(
-  (response) => response,
+  (response: IAxios.IAxiosResponse) => {
+    // 冻结请求时候 直接返回整个响应体
+    if (response.config.responseFreeze) {
+      return response
+    }
+    return response.data
+  },
   (err) => Promise.reject(err)
 )
 
@@ -37,3 +43,6 @@ export const request = <T, U extends keyof IAxios.IRequest<T>>({
     IAxios.IResponse<T>
   >
 }
+
+export * from './lib/auth'
+export * from './lib/user'

@@ -1,9 +1,9 @@
 [package]
-name = "app"
+name = "wxgo"
 version = "0.1.0"
 description = "A Tauri App"
-authors = ["you"]
-license = ""
+authors = ["jdeseva"]
+license = "MIT"
 repository = ""
 edition = "2021"
 rust-version = "1.70"

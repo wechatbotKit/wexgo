@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import reactLogo from '../assets/react.svg'
 import { invoke } from '@tauri-apps/api/core'
 
+import { onLoginApi } from '../api/index'
+
 function App() {
   const [greetMsg, setGreetMsg] = useState('')
   const [name, setName] = useState('')
@@ -14,9 +16,18 @@ function App() {
 
   const navigate = useNavigate()
 
+  const onLogin = async () => {
+    const { code, data: { items: [{ access_token = '', expires_at = -1 }] = [] } = {} } =
+      await onLoginApi({
+        username: import.meta.env.VITE_APP_USER,
+        password: import.meta.env.VITE_APP_PASSWORD,
+      })
+    console.log(12334, code, access_token, expires_at)
+  }
+
   return (
     <div className="container">
-      <h1>Welcome to Tauri!</h1>
+      <h1 onClick={() => onLogin()}>Welcome to Tauri!</h1>
 
       <div className="row">
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">

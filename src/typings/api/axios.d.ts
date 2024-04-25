@@ -15,6 +15,7 @@ export interface IResponse<T> {
 
 export interface IAxiosResponse extends AxiosResponse {
   data: IResponse
+  config: AxiosRequestConfig & { responseFreeze?: boolean }
 }
 
 export interface IRequest<T> {
@@ -29,7 +30,7 @@ export interface IConfig<T> {
   url: string
   data?: { [propName: string]: any }
   method?: T
-  config?: AxiosRequestConfig
+  config?: AxiosRequestConfig & { responseFreeze?: boolean }
   params?: { [propName: string]: any }
 }
 
